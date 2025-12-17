@@ -34,4 +34,12 @@ public class Crop {
 
     public String getDiseaseStatus() { return diseaseStatus; }
     public void setDiseaseStatus(String diseaseStatus) { this.diseaseStatus = diseaseStatus; }
+
+    public double getExpectedYieldPerHectare() {
+        return expectedYieldPerHectare;
+    }
+
+    public void setExpectedYieldPerHectare(double expectedYieldPerHectare) {
+        this.expectedYieldPerHectare = expectedYieldPerHectare;
+    }
 }

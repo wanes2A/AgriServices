@@ -34,4 +34,13 @@ public class CropServiceImpl implements CropService {
         crops.add(crop);
         return "Culture " + crop.getName() + " enregistrée avec succès!";
     }
+    @Override
+    public double calculateYield(String cropName, double area) {
+        Crop crop = getCropInfo(cropName);
+        if (crop == null) {
+            return 0.0; // or throw an error
+        }
+        // Simple rule: expectedYieldPerHectare * area
+        return crop.getExpectedYieldPerHectare() * area;
+    }
 }

@@ -2,6 +2,7 @@
 
 import model.Crop;
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
@@ -12,12 +13,17 @@ import java.util.List;
 @SOAPBinding(style = Style.RPC) // Style RPC est plus simple pour les exemples
 public interface CropService {
 
-    @WebMethod
-    Crop getCropDetails(int cropId);
+    @WebMethod(operationName = "getCropInfo")
+    Crop getCropInfo(
+            @WebParam(name = "cropName") String cropName
+    );
 
-    @WebMethod
-    List<Crop> getAllCrops();
+    @WebMethod(operationName = "calculateYield")
+    double calculateYield(
+            @WebParam(name = "cropName") String cropName,
+            @WebParam(name = "area") double area
+    );
 
-    @WebMethod
-    String registerNewCrop(Crop crop);
+    @WebMethod(operationName = "listAllCrops")
+    List<Crop> listAllCrops();
 }
